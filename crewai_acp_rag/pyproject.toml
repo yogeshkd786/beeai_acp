@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crewai_acp_rag"
+version = "0.1.0"
+description = "A CrewAI project using RAG."
+requires-python = ">=3.11,<4.0"
+authors = [
+  { name="Yogesh Kadam", email="yogeshkadamcloud@gmail.com" },
+]
+dependencies = [
+    "crewai",
+    "crewai-tools",
+    "pyyaml>=6.0.2",
+    "langchain-openai",
+    "langchain-groq",
+    "python-dotenv",
+    "acp-sdk",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "huggingface-hub",
+    "sentence-transformers",
+    "pypdf",
+    "langchain-huggingface>=0.3.1",
+    "nest-asyncio>=1.6.0",
+    "agntcy-acp>=1.5.2",
+]
+
+[project.scripts]
+server = "crewai_acp_rag.agent:server.run"
+
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

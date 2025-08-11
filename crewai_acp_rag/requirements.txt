@@ -1,0 +1,12 @@
+crewai
+crewai-tools
+langchain-openai
+langchain-groq
+python-dotenv
+acp-sdk
+fastapi
+uvicorn
+pydantic
+huggingface-hub
+sentence-transformers
+pypdf

@@ -1,0 +1,14 @@
+acp-sdk>=1.0.1
+asyncio>=4.0.0
+ddgs>=9.5.2
+duckduckgo-search>=8.1.1
+langchain-groq>=0.3.7
+litellm>=1.75.7
+markdownify>=1.2.0
+requests>=2.32.4
+smolagents>=1.21.1
+trafilatura>=2.0.0
+python-dotenv
+uvicorn
+fastapi
+google-generativeai

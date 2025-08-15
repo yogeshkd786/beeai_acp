@@ -30,9 +30,9 @@ The application implements ACP compliance through:
 - **Multiple Agent Support**: Architecture supports multiple agents (health_agent, health_router_agent)
 
 ## Large Language Model Integration
-- **LiteLLM Model**: Uses GPT-4o-mini for cost-effective health question processing
-- **Configurable API Integration**: Supports OpenAI API with fallback mechanisms
-- **Token Management**: Configured with 2048 max tokens for balanced response length
+- **OpenAIServerModel**: Uses Google Gemini Pro for health question processing.
+- **Configurable API Integration**: Supports Google Gemini API (OpenAI-compatible).
+- **Token Management**: Configured with 2000 max tokens for balanced response length.
 
 ## Web Search and Content Processing
 - **DuckDuckGoSearchTool**: Integrated search capability for finding reliable health information
@@ -52,8 +52,8 @@ The application implements ACP compliance through:
 - **acp-sdk**: Agent Communication Protocol implementation for standardized agent communication
 
 ## Language Model Services
-- **OpenAI API**: GPT-4o-mini model access via LiteLLM
-- **LiteLLM**: Unified interface for multiple LLM providers
+- **Google Gemini Pro**: Uses Google Gemini 2.5 Pro for health question processing via `OpenAIServerModel`.
+- **Configurable API Integration**: Supports Google Gemini API (OpenAI-compatible).
 
 ## Web Processing Tools
 - **trafilatura**: Web content extraction and text processing
@@ -65,6 +65,6 @@ The application implements ACP compliance through:
 - **typing**: Type hints and enhanced code documentation
 
 ## Configuration Requirements
-- **Environment Variables**: OPENAI_API_KEY for LLM access
+- **Environment Variables**: GEMINI_API_KEY for LLM access
 - **Network Access**: Required for web search and content extraction operations
 - **Port Configuration**: Default server deployment on port 8000

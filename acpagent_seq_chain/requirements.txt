@@ -1,0 +1,2 @@
+colorama
+acp-sdk

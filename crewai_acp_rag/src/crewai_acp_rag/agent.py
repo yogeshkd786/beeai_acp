@@ -72,7 +72,7 @@ vectorstore_tool = PDFSearchTool(pdf='rbhs_info.pdf',
 
 
 @server.agent(
-    name="research_agent",
+    name="rag_agent",
     description=(
         "This is an agent for questions around hospital policy coverage, it uses a RAG pattern to find answers based on policy documentation, "
         "Use it to help answer questions on coverage and waiting periods."
@@ -81,10 +81,10 @@ vectorstore_tool = PDFSearchTool(pdf='rbhs_info.pdf',
         annotations=Annotations(
             beeai_ui=PlatformUIAnnotation(
                 ui_type=PlatformUIType.CHAT,
-                display_name="Research Agent",
+                display_name="RAG Agent",
                 programming_language="Python",
-                user_greeting="Hello! I'm your Research AI assistant. How can I help you today?",
-                
+                user_greeting="Hello! I'm your RAG AI assistant. How can I help you today?",
+
             )
         ),
         framework="BeeAI",
@@ -99,7 +99,7 @@ vectorstore_tool = PDFSearchTool(pdf='rbhs_info.pdf',
 
 
 
-async def research_agent(input: list[Message]) -> AsyncGenerator[RunYield, RunYieldResume]:
+async def rag_agent(input: list[Message]) -> AsyncGenerator[RunYield, RunYieldResume]:
     "This is an agent for questions around hospital policy coverage, it uses a RAG pattern to find answers based on policy documentation. Use it to help answer questions on coverage and waiting periods."
 
     rag_agent = Agent(

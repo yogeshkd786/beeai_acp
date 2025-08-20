@@ -10,7 +10,7 @@ async def acp_client() -> None:
     async with Client(base_url="http://localhost:8001") as client:
         run = await client.run_sync(
                         
-            agent="research_agent", input=question
+            agent="rag_agent", input=question
                   
         )
         print("Response:\n" + run.output[0].parts[0].content)

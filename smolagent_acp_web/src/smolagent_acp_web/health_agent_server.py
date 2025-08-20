@@ -42,7 +42,7 @@ def create_health_agent_server() -> Server:
 
     # Initialize the Google Gemini LLM using OpenAIServerModel for smolagents compatibility.
     llm = OpenAIServerModel(
-        model_id="gemini-2.5-pro",
+        model_id="gemini-2.5-flash",
         api_key=gemini_api_key,
         api_base="https://generativelanguage.googleapis.com/v1beta/openai/",
         max_tokens=2000,  # Set maximum tokens for response generation

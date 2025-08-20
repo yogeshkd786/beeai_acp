@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acpagent_hierarchy_chain"
+version = "0.1.0"
+description = "A project demonstrating hierarchical agent chaining with ACP."
+requires-python = ">=3.10"
+authors = [
+  { name="Your Name", email="your@email.com" },
+]
+dependencies = [
+    "nest_asyncio",
+    "acp_sdk",
+    "smolagents",
+    "fastacp",
+    "colorama",
+    "litellm",
+    "google-auth>=1.6.3",
+]

@@ -1,0 +1,7 @@
+nest_asyncio
+acp_sdk
+smolagents
+fastacp
+colorama
+litellm
+google-auth 

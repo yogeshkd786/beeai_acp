@@ -1,0 +1,23 @@
+[project]
+name = "doctor_mcp_server"
+version = "0.1.0"
+description = "A Multi-Agent Communication Protocol (MCP) server exposing a tool to retrieve doctor information based on location."
+authors = [{name = "Your Name", email = "your.email@example.com"}]
+dependencies = [
+    "fastmcp",
+    "requests",
+    "beautifulsoup4",
+    "uvicorn",
+    "fastapi>=0.116.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+

@@ -1,0 +1,41 @@
+{
+  "DOCSG001": {
+    "name": "Dr. Lee Wei Ling",
+    "specialty": "General Practitioner",
+    "address": {
+      "street": "123 Orchard Road",
+      "city": "Singapore",
+      "zip_code": "238877"
+    },
+    "phone": "+65 6123 4567",
+    "email": "lee.wl@example.com",
+    "clinic": "Orchard Clinic",
+    "location": "Orchard"
+  },
+  "DOCSG002": {
+    "name": "Dr. Tan Ah Kow",
+    "specialty": "Pediatrician",
+    "address": {
+      "street": "456 Jurong East Central 1",
+      "city": "Singapore",
+      "zip_code": "600456"
+    },
+    "phone": "+65 6789 0123",
+    "email": "tan.ak@example.com",
+    "clinic": "Jurong Kids Clinic",
+    "location": "Jurong East"
+  },
+  "DOCSG003": {
+    "name": "Dr. Lim Mei Mei",
+    "specialty": "Dermatologist",
+    "address": {
+      "street": "789 Tampines Avenue 4",
+      "city": "Singapore",
+      "zip_code": "520789"
+    },
+    "phone": "+65 6234 5678",
+    "email": "lim.mm@example.com",
+    "clinic": "Tampines Skin Centre",
+    "location": "Tampines"
+  }
+}

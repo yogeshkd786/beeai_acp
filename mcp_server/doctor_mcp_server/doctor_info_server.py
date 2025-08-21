@@ -6,7 +6,8 @@ import uvicorn
 from pydantic import BaseModel
 
 # Define the path to the local JSON file
-DOCTORS_JSON_FILE = "doctor_list_sg.json"
+DOCTORS_JSON_FILE = "..\\mcp_server\\doctor_mcp_server\\doctor_list_sg.json"
+#DOCTORS_JSON_FILE = "doctor_list_sg.json"
 
 # Global variable to store doctor data
 DOCTORS_DATA = []
@@ -86,4 +87,5 @@ async def call_doctor_info_tool(input: LocationInput):
 if __name__ == "__main__":
     print("Starting Doctor MCP Server (via FastAPI and Uvicorn). Access the API at http://localhost:8002/docs")
     print("To use the tool, send a POST request to http://localhost:8002/call/doctor_info_tool with a JSON body like: {'location': 'Orchard'}")
-    uvicorn.run(app, host="0.0.0.0", port=8002)
+    #uvicorn.run(app, host="0.0.0.0", port=8002)
+    mcp.run(transport="stdio")

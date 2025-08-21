@@ -10,14 +10,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ACP SDK imports
-from acp_sdk.server import Server
+from acp_sdk.server import Server, RunYield, RunYieldResume
 from acp_sdk.models import Message, MessagePart
 
 # smolagents imports
-from smolagents import CodeAgent, DuckDuckGoSearchTool, VisitWebpageTool, OpenAIServerModel
+from smolagents import CodeAgent, DuckDuckGoSearchTool, VisitWebpageTool, OpenAIServerModel, ToolCallingAgent, ToolCollection
 
 # Local imports
 from .web_content_extractor import HealthContentExtractor
+
+# MCP server
+from mcp import StdioServerParameters
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +56,14 @@ def create_health_agent_server() -> Server:
         # presence_penalty=0.0,   # Optional: encourage new topics
     )
     
+
+    server_parameters = StdioServerParameters(
+    command="uv",
+    #args=["run", "src\\smolagent_acp_web\\doctor_info_server.py"],
+    args=["run", "..\\mcp_server\\doctor_mcp_server\\doctor_info_server.py"],
+    env=None,
+    )
+
     # Initialize content extractor
     content_extractor = HealthContentExtractor()
     
@@ -285,7 +296,19 @@ def create_health_agent_server() -> Server:
                 )]
             )
     
+    @server.agent()
+    async def doctor_agent(input: list[Message]) -> AsyncGenerator[RunYield, RunYieldResume]:
+        "This is a Doctor Agent which helps users find doctors near them."
+        with ToolCollection.from_mcp(server_parameters, trust_remote_code=True) as tool_collection:
+            agent = ToolCallingAgent(tools=[*tool_collection.tools], model=llm)
+            prompt = input[0].parts[0].content
+            response = agent.run(prompt)
+
+        yield Message(parts=[MessagePart(content=str(response))])
+
     return server
+
+    
 
 # Health-specific utility functions
 def validate_health_query(query: str) -> tuple[bool, str]:

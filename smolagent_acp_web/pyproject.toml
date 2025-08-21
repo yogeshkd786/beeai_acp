@@ -8,11 +8,14 @@ dependencies = [
     "asyncio>=4.0.0",
     "ddgs>=9.5.2",
     "duckduckgo-search>=8.1.1",
+    "fastmcp>=2.11.3",
     "langchain-groq>=0.3.7",
     "litellm>=1.75.7",
     "markdownify>=1.2.0",
+    "mcp>=1.13.0",
+    "nest-asyncio>=1.6.0",
     "requests>=2.32.4",
-    "smolagents>=1.21.1",
+    "smolagents[mcp]>=1.21.1",
     "trafilatura>=2.0.0",
 ]
 

@@ -4,4 +4,4 @@ smolagents
 fastacp
 colorama
 litellm
-google-auth 
+google-auth>=1.6.3

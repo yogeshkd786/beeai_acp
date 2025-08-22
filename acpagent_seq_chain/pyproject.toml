@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "acpagent_seq_chain"
 version = "0.1.0"
-description = "A sequential workflow chaining RAG and Web agents."
+description = "A project demonstrating a sequential workflow chaining RAG and Web agents to answer complex questions."
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
@@ -17,4 +17,3 @@ dependencies = [
     "colorama",
     "acp-sdk",
 ]
-

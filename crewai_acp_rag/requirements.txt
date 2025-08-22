@@ -1,5 +1,6 @@
 crewai
 crewai-tools
+pyyaml>=6.0.2
 langchain-openai
 langchain-groq
 python-dotenv
@@ -10,3 +11,6 @@ pydantic
 huggingface-hub
 sentence-transformers
 pypdf
+langchain-huggingface>=0.3.1
+nest-asyncio>=1.6.0
+agntcy-acp>=1.5.2

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "crewai_acp_rag"
 version = "0.1.0"
-description = "A CrewAI project using RAG."
+description = "A CrewAI project using RAG to answer questions about a given document, in this case, a PDF file about RBHS."
 requires-python = ">=3.11,<4.0"
 authors = [
   { name="Yogesh Kadam", email="yogeshkadamcloud@gmail.com" },

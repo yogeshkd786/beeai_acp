@@ -1,22 +1,26 @@
 [project]
 name = "smolagent_acp_web"
 version = "0.1.0"
-description = "Add your description here"
+description = "An ACP-compliant health agent using the smolagent library that helps hospitals answer patient health questions through web search and content extraction."
 requires-python = ">=3.11"
 dependencies = [
     "acp-sdk>=1.0.1",
-    "asyncio>=4.0.0",
     "ddgs>=9.5.2",
     "duckduckgo-search>=8.1.1",
+    "fastapi",
     "fastmcp>=2.11.3",
+    "google-generativeai",
     "langchain-groq>=0.3.7",
     "litellm>=1.75.7",
     "markdownify>=1.2.0",
     "mcp>=1.13.0",
     "nest-asyncio>=1.6.0",
+    "python-dotenv",
+    "python-multipart",
     "requests>=2.32.4",
     "smolagents[mcp]>=1.21.1",
     "trafilatura>=2.0.0",
+    "uvicorn",
 ]
 
 

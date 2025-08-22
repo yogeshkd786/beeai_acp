@@ -1,5 +1,5 @@
 fastmcp
-fastapi
 requests
 beautifulsoup4
 uvicorn
+fastapi>=0.116.1

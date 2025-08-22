@@ -30,12 +30,56 @@ This application implements a hospital health agent system that:
 - **Privacy Considerations**: Designed with patient privacy in mind
 - **Professional Disclaimers**: Always recommends consulting healthcare providers
 
+## Agents
+
+This application includes three distinct agents, each with a specific role:
+
+### Health Agent (`health_agent`)
+
+This is the primary agent for answering health-related questions. It takes a user's query, searches the web for relevant and reliable information, and provides a comprehensive, easy-to-understand response.
+
+- **Tools**: `DuckDuckGoSearchTool`, `VisitWebpageTool`
+- **Functionality**:
+    - Searches for health information from reputable sources.
+    - Extracts and summarizes content from web pages.
+    - Enhances the response with medical disclaimers and formatting.
+
+### Health Router Agent (`health_router_agent`)
+
+This agent acts as a preliminary triage for incoming health queries. It categorizes questions to determine their urgency and provides an appropriate initial response.
+
+- **Functionality**:
+    - Identifies urgent queries based on keywords (e.g., "emergency," "chest pain").
+    - Provides immediate guidance for urgent situations, advising users to contact emergency services.
+    - For general queries, it confirms that the request is being processed.
+
+### Doctor Agent (`doctor_agent`)
+
+This agent helps users find doctors in their vicinity. It leverages an external MCP (Multi-Agent Communication Protocol) server to access a database of doctors.
+
+- **Tools**: `ToolCollection` from an MCP server.
+- **Functionality**:
+    - Takes a user's location as input.
+    - Queries an external service to find nearby doctors.
+    - Returns a list of doctors to the user.
+
+## Important Considerations
+
+### Trusted Sources
+
+The `HealthContentExtractor` class includes a list of trusted health sources (e.g., Mayo Clinic, WebMD, NIH). When the `health_agent` retrieves information, it prioritizes these sources to ensure the information is reliable and evidence-based.
+
+### Medical Disclaimer
+
+All responses from the `health_agent` are appended with a medical disclaimer. This is to ensure that users understand that the information provided is for educational purposes only and not a substitute for professional medical advice.
+
 ## Installation
 
 ### Prerequisites
 ```bash
 # Install required Python packages
-pip install smolagents acp-sdk trafilatura asyncio
+pip install smolagents acp-sdk trafilatura asyncio fastapi uvicorn python-multipart
+```
 
 ## Running the Application
 
@@ -119,3 +163,30 @@ This method uses the `uv` command to run the agent server as an installed script
 
 1.  Open your web browser and navigate to the following URL:
     [http://localhost:5010](http://localhost:5010)
+
+## Interacting with the Agents
+
+### Web Interface
+
+The simplest way to interact with the `health_agent` is through the web interface. Open [http://localhost:5010](http://localhost:5010) in your browser, type your health question in the text area, and click "Get Health Information."
+
+### Command-line Client
+
+You can use the `client_example.py` script to interact with the `health_agent` and `health_router_agent` from the command line.
+
+-   **Run example queries:**
+    ```bash
+    python smolagent_acp_web/src/smolagent_acp_web/client_example.py
+    ```
+-   **Run in interactive mode:**
+    ```bash
+    python smolagent_acp_web/src/smolagent_acp_web/client_example.py --interactive
+    ```
+    In interactive mode, you can prefix your query with `router:` to use the `health_router_agent`.
+
+### Programmatic Client
+
+You can also interact with the agents programmatically using the `acp-sdk`.
+
+-   **Health Agent Example**: See `client_example.py` for how to create a `HealthAgentClient` to interact with the `health_agent` and `health_router_agent`.
+-   **Doctor Agent Example**: See `client_acp_mcp_call.py` for an example of how to call the `doctor_agent`.
